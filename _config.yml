@@ -4,8 +4,7 @@ icon:               "/img/parfaitLogo.png"
 description:        Projet parfait LIA
 author:             PARFAIT LIA
 baseurl:            ""
-url:                "https://parfaitLIA.github.io"
-
+url:                ""
 # Social Profiles
 twitter_username:   SBootstrap
 github_username:    StartBootstrap
