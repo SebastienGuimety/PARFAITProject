@@ -12,6 +12,15 @@
                     {{ tag }}
                 </a>
             {% endfor %}
+            <br>
+            <br>
+            <div id="currently-showing">
+                <h4 class="d-inline-block align-items-center mb-3">Active Tag:</h4>
+                <span class="border rounded  bg-light text-secondary" id="active-tag"></span>
+                <br>
+                <a class="btn btn-primary btn-small" href="javascript:void(0)" onclick="clearTags()">clear</a>
+            </div>
         </div>
     </div>
+    
 </div>

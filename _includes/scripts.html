@@ -4,6 +4,54 @@
 
 <script src="{{"/assets/scripts.js" | relative_url }}"></script>
 
+<script>
+
+  var parseHash = function() {
+        if (document.location.hash.length > 0) {
+            var tag = document.location.hash.slice(1)
+            var name = $(".tag-" + tag).first().text()
+            showPostByTag(tag, name)
+        }
+        else {
+            clearTags()
+        }
+    }
+  
+    $(document).ready(parseHash);
+  
+    $(window).on('hashchange', parseHash);
+  
+    var showPostByTag = function(tag, name) {
+        $("#currently-showing").show()
+        $(".card-post").hide()
+        $(".pagi").hide()
+        $(".tag").removeClass("bg-warning")
+            .addClass("bg-white")
+            .removeClass("text-dark")
+        $(".card-post").each(function(idx, card) {
+            var matches = $(card).find(".tag-" + tag)
+            if (matches.length > 0) $(card).show()
+        })
+        $(".tag-" + tag).removeClass("bg-white")
+            .addClass("bg-secondary")
+            .addClass("text-dark")
+            .blur()
+        $("#active-tag").html(name)
+    }
+  
+    var clearTags = function() {
+        $("#currently-showing").hide()
+        $(".pagi").show()
+        $(".card-post").show()
+        $(".tag").removeClass("bg-warning")
+            .addClass("bg-white")
+            .removeClass("text-dark")
+        document.location.hash = ""
+    }
+  </script>
+  
+
+
 {% if page.url contains 'contact' %}
   <!-- Form Validation -->
   <script src="{{"/assets/vendor/startbootstrap-clean-blog/js/jqBootstrapValidation.js" | relative_url }}"></script>
@@ -82,3 +130,4 @@
     });
   </script>
 {% endif %}
+
